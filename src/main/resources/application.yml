@@ -1,0 +1,44 @@
+
+server: 
+  port: 30001
+  servlet: 
+    context-path: /builder
+
+spring: 
+  datasource: 
+    url: jdbc:mysql://127.0.0.1:3306/fdb?useUnicode=true&characterEncoding=utf8&useSSL=false&tinyInt1isBit=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties: 
+      hibernate: 
+        format_sql: true
+  jackson: 
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd hh:mm:ss.SSS
+  redis: 
+    database: 5
+    timeout: 10000
+    host: 127.0.0.1
+    port: 6379
+    ## password: root
+    lettuce: 
+      pool: 
+        max-active: 50    # 最大连接数
+        max-wait: -1      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 30      # 连接池中的最大空闲连接
+        min-idle: 10      # 连接池中的最小空闲连接
+customer: 
+  db-type: mysql
+  datasource: 
+    db0: 
+      url: jdbc:mysql://127.0.0.1:3306/bizdb?useUnicode=true&characterEncoding=utf8&useSSL=false&tinyInt1isBit=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
